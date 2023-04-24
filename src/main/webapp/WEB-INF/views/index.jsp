@@ -17,6 +17,11 @@
 <button onclick="fun2()">monday3-바로가기</button>
 <button onclick="fun3()">monday4-바로가기</button>
 <a href="/monday5">monday5-바로가기</a>
+<a href="/method1">method1 호출</a>
+<%-- monday6
+    회원 이메일 , 비밀번호 , 성별 , 전화번호 , 사는지역 , 개발 가능한 언어 정보를 입력받고
+    이 정보를 DTO객체에 담아서 Service 클래스의 method2에서 출력해볼 것--%>
+<a href="/monday6">monday6-바로가기</a>
 </body>
 <script>
     const fun1 = () => {

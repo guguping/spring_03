@@ -1,7 +1,10 @@
 package com.icia.ex3.controller;
 
 import com.icia.ex3.dto.MemberDTO;
+import com.icia.ex3.dto.MemberSaveDTO;
 import com.icia.ex3.dto.MenuDTO;
+import com.icia.ex3.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +19,9 @@ import java.util.List;
 
 @Controller
 public class MainController {
+    @Autowired
+    private MemberService memberService;
+
     @GetMapping("/")
     public String index(){
         return "index";
@@ -67,38 +73,39 @@ public class MainController {
     // 하지만 name과 dto의 필드 이름이 같아야한다
 
 
-    @GetMapping("/monday4")
-    public String monday5(Model model){
-        List<MemberDTO> mList = new ArrayList<>();
-        for (int i = 1 ; i <=10 ; i++){
-            MemberDTO member = new MemberDTO();
-            member.setMemberID(member.getMemberID()+(long)i);
-            member.setEmail("이메일"+i);
-            member.setPassword("비밀번호"+i);
-            mList.add(member);
-        }
-        model.addAttribute("mList",mList);
-        return "monday4";
-    }
-
-//        private List<MemberDTO> newMemberDTO(){
-//        List<MemberDTO> memberList = new ArrayList<>();
-//        for (int i=1; i<=10; i++) {
-//            MemberDTO memberDTO = new MemberDTO();
-//            memberDTO.setMemberID((long) i);
-//            memberDTO.setEmail("이메일" + i);
-//            memberDTO.setPassword("비밀번호" + i);
-//            memberList.add(memberDTO);
-//        }
-//        return memberList;
-//    }
-//
 //    @GetMapping("/monday4")
-//    public String monday4(Model model){
-//        List<MemberDTO> newList = newMemberDTO();
-//        model.addAttribute("mList",newMemberDTO());
+//    public String monday5(Model model){
+//        List<MemberDTO> mList = new ArrayList<>();
+//        for (int i = 1 ; i <=10 ; i++){
+//            MemberDTO member = new MemberDTO();
+//            member.setMemberID(member.getMemberID()+(long)i);
+//            member.setEmail("이메일"+i);
+//            member.setPassword("비밀번호"+i);
+//            mList.add(member);
+//        }
+//        model.addAttribute("mList",mList);
 //        return "monday4";
 //    }
+
+        private List<MemberDTO> newMemberDTO(){
+        List<MemberDTO> memberList = new ArrayList<>();
+        for (int i=1; i<=10; i++) {
+            MemberDTO memberDTO = new MemberDTO();
+            memberDTO.setMemberID((long) i);
+            memberDTO.setEmail("이메일" + i);
+            memberDTO.setPassword("비밀번호" + i);
+            memberList.add(memberDTO);
+        }
+        return memberList;
+    }
+
+    @GetMapping("/monday4")
+    public String monday4(Model model){
+        List<MemberDTO> newList = newMemberDTO();
+        model.addAttribute("mList",newList);
+//        model.addAttribute("mList",newMemberDTO());
+        return "monday4";
+    }
     @GetMapping("/monday5")
     public String monday5(){
         return "monday5";
@@ -116,4 +123,22 @@ public class MainController {
         System.out.println("menuDTO = " + menuDTO);
         return "index";
     }
+    @GetMapping("/method1")
+    public String method1(){
+//        MemberService memberService = new MemberService();이렇게 쓰지 않는다
+        String result = memberService.method1();
+        System.out.println("result = "+ result);
+        return "index";
+    }
+
+    @GetMapping("/monday6")
+    public String monday6(){
+        return "monday6";
+    }
+    @PostMapping("/monday6-param")
+    public String monday6Param(@ModelAttribute MemberSaveDTO memberSaveDTO){
+        memberService.method2(memberSaveDTO);
+        return "index";
+    }
+
 }
