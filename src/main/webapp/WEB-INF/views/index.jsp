@@ -16,6 +16,8 @@
 <button onclick="fun1()">monday2-바로가기</button><br>
 <button onclick="fun2()">monday3-바로가기</button><br>
 <button onclick="fun3()">monday4-바로가기</button><br>
+
+
 <a href="/monday5">monday5-바로가기</a><br>
 <a href="/method1">method1 호출</a><br>
 <%-- monday6

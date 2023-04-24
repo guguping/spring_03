@@ -12,8 +12,8 @@
 </head>
 <body>
 <h2>응애 나는 애기 monday1</h2>
-<%--<a href="#" onclick="fun1()">monday1-param보내기</a>--%>
-<button onclick="fun1()">monday1-param보내기</button>
+<a href="#" onclick="fun1()">monday1-param보내기</a>
+<%--<button onclick="fun1()">monday1-param보내기</button>--%>
 <a href="/">index로 이동</a>
 </body>
 <script>
