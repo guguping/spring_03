@@ -1,6 +1,7 @@
 package com.icia.ex3.controller;
 
 import com.icia.ex3.dto.MemberDTO;
+import com.icia.ex3.dto.MenuDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.lang.reflect.Member;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -79,21 +81,39 @@ public class MainController {
         return "monday4";
     }
 
-    //    private MemberDTO newMemberDTO(int i){
-//        MemberDTO memberDTO = new MemberDTO();
-//        memberDTO.setMemberID((long)i);
-//        memberDTO.setEmail("이메일"+i);
-//        memberDTO.setPassword("비밀번호"+i);
-//        return memberDTO;
+//        private List<MemberDTO> newMemberDTO(){
+//        List<MemberDTO> memberList = new ArrayList<>();
+//        for (int i=1; i<=10; i++) {
+//            MemberDTO memberDTO = new MemberDTO();
+//            memberDTO.setMemberID((long) i);
+//            memberDTO.setEmail("이메일" + i);
+//            memberDTO.setPassword("비밀번호" + i);
+//            memberList.add(memberDTO);
+//        }
+//        return memberList;
 //    }
 //
 //    @GetMapping("/monday4")
 //    public String monday4(Model model){
-//        List<MemberDTO> mList = new ArrayList<>();
-//        for (int i = 1 ; i <=10; i++){
-//            mList.add(newMemberDTO(i));
-//        }
-//        model.addAttribute("mList",mList);
+//        List<MemberDTO> newList = newMemberDTO();
+//        model.addAttribute("mList",newMemberDTO());
 //        return "monday4";
 //    }
+    @GetMapping("/monday5")
+    public String monday5(){
+        return "monday5";
+    }
+//    @PostMapping("/monday5-param")
+//    public String monday5Param(@RequestParam("name") String name,
+//                               @RequestParam("gender") String gender ,
+//                               @RequestParam("city") String city ,
+//                               @RequestParam("lang") String[] lang){
+//        System.out.println("name = " + name + ", gender = " + gender + ", city = " + city + ", lang = " + Arrays.toString(lang));
+//        return "index";
+//    }
+    @PostMapping("/monday5-param")
+    public String monday5Param(@ModelAttribute MenuDTO menuDTO){
+        System.out.println("menuDTO = " + menuDTO);
+        return "index";
+    }
 }

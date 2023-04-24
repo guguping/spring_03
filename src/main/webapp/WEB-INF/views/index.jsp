@@ -16,6 +16,7 @@
 <button onclick="fun1()">monday2-바로가기</button>
 <button onclick="fun2()">monday3-바로가기</button>
 <button onclick="fun3()">monday4-바로가기</button>
+<a href="/monday5">monday5-바로가기</a>
 </body>
 <script>
     const fun1 = () => {

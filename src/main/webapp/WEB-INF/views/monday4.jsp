@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -12,6 +11,7 @@
     <title>monday4</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/bootstrap.bundle.min.js"></script>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 <h2>응애 나는 애기 monday4</h2>
